@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Animated Telugu Movie List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #0f0f0f; /* Dark background for contrast */
+            color: #fff;
+        }
+
+        .heading {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(145deg, #1e1e1e, #292929);
+            color: #ffcc00;
+            font-size: 2em;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns for 3x3 layout */
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .movie {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            background: linear-gradient(145deg, #1e1e1e, #292929);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4), -5px -5px 15px rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+
+        .movie:hover {
+            transform: scale(1.05) rotateX(5deg) rotateY(5deg); /* 3D hover effect */
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.7), -10px -10px 30px rgba(255, 255, 255, 0.1);
+        }
+
+        .movie img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .movie:hover img {
+            transform: scale(1.1); /* Zoom-in effect on hover */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .movie h2 {
+            margin: 0 0 10px;
+            color: #ffcc00; /* Highlighted title color */
+            font-size: 1.2em;
+        }
+
+        .movie p {
+            margin: 8px 0;
+            font-size: 0.9em;
+            color: #ddd;
+        }
+
+        .movie strong {
+            color: #ffcc00;
+        }
+
+        .container::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr); /* Adjust to 2 columns for smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                grid-template-columns: 1fr; /* Single column for very small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+         Telugu Movie List
+    </div>
+    <div class="container">
+        <script>
+            const movies = [
+                {
+                    title: "Baahubali: The Conclusion",
+                    director: "S.S. Rajamouli",
+                    year: "2017",
+                    image: "https://data1.ibtimes.co.in/en/full/633958/prabhas-anushka-shettys-look-baahubali-conclusion.jpg?h=450&l=50&t=40",
+                    rating: "8.8/10",
+                    runtime: "167 minutes",
+                    plot: "Mahendra Baahubali raises an army to defeat Bhallaladeva and release his mother from captivity.",
+                },
+                {
+                    title: "RRR",
+                    director: "S.S. Rajamouli",
+                    year: "2022",
+                    image: "https://media.mpcvfx.com/app/uploads/2022/06/RRR.jpg",
+                    rating: "9.0/10",
+                    runtime: "182 minutes",
+                    plot: "Two legendary revolutionaries fight against British colonialism in the 1920s.",
+                },
+                {
+                    title: "Pushpa: The Rise",
+                    director: "Sukumar",
+                    year: "2021",
+                    image: "https://assets-in.bmscdn.com/discovery-catalog/events/et00129538-uuftwhwyya-landscape.jpg",
+                    rating: "7.6/10",
+                    runtime: "179 minutes",
+                    plot: "Pushpa rises in the world of red sandalwood smuggling, battling enemies and the law.",
+                },
+                {
+                    title: "Magadheera",
+                    director: "S.S. Rajamouli",
+                    year: "2009",
+                    image: "https://media.licdn.com/dms/image/v2/C4D12AQGrcepwLluZ3A/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1520153181728?e=2147483647&v=beta&t=uRLFa3iFyJLpWXKUJ3NSbGhpm7DVbRQx-glQRzeYDP4",
+                    rating: "7.7/10",
+                    runtime: "147 minutes",
+                    plot: "A bike racer learns of his past as a warrior destined to protect a princess.",
+                },
+                {
+                    title: "Rangasthalam",
+                    director: "Sukumar",
+                    year: "2018",
+                    image: "https://survi.in/wp-content/uploads/2018/03/Rangasthalam-Movie-Review-1-e1522411244550.jpg",
+                    rating: "8.4/10",
+                    runtime: "170 minutes",
+                    plot: "A hearing-impaired pump operator takes on corruption in his village.",
+                },
+                {
+                    title: "Arjun Reddy",
+                    director: "Sandeep Reddy Vanga",
+                    year: "2017",
+                    image: "https://venkatarangan.com/wp-content/uploads/2017/09/Arjun-reddy.jpg",
+                    rating: "8.1/10",
+                    runtime: "182 minutes",
+                    plot: "A hot-headed surgeon struggles to cope with a failed relationship.",
+                },
+                {
+                    title: "Jersey",
+                    director: "Gowtam Tinnanuri",
+                    year: "2019",
+                    image: "https://e1.pxfuel.com/desktop-wallpaper/523/206/desktop-wallpaper-nani-jersey-movie.jpg",
+                    rating: "8.3/10",
+                    runtime: "157 minutes",
+                    plot: "A failed cricketer returns to fulfill his son's wish for a jersey.",
+                },
+                {
+                    title: "Pokiri",
+                    director: "Puri Jagannadh",
+                    year: "2006",
+                    image: "https://pardesireviews.com/wp-content/uploads/2016/08/wp-30pokiri1024.jpg?w=479&h=359",
+                    rating: "8.0/10",
+                    runtime: "164 minutes",
+                    plot: "An undercover cop exposes a powerful crime syndicate.",
+                },
+                {
+                    title: "Eega",
+                    director: "S.S. Rajamouli",
+                    year: "2012",
+                    image: "https://c4.wallpaperflare.com/wallpaper/516/404/858/samantha-eega-wallpaper-preview.jpg",
+                    rating: "7.9/10",
+                    runtime: "145 minutes",
+                    plot: "A man reincarnates as a fly to avenge his murder and protect his lover.",
+                }
+            ];
+
+            const container = document.querySelector('.container');
+            movies.forEach(movie => {
+                const movieDiv = document.createElement('div');
+                movieDiv.className = 'movie';
+                movieDiv.innerHTML = `
+                    <h2>${movie.title} (${movie.year})</h2>
+                    <img src="${movie.image}" alt="${movie.title}">
+                    <p><strong>Director:</strong> ${movie.director}</p>
+                    <p><strong>Rating:</strong> ${movie.rating}</p>
+                    <p><strong>Runtime:</strong> ${movie.runtime}</p>
+                    <p><strong>Plot:</strong> ${movie.plot}</p>
+                `;
+                container.appendChild(movieDiv);
+            });
+        </script>
+    </div>
+</body>
+</html>
